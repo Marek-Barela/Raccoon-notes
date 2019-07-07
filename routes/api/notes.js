@@ -36,6 +36,90 @@ router.post("/", [
     console.error(err.message);
     res.status(500).send("Server error");
   }
+});
+
+// @route     GET api/notes/:id
+// @desc      Get notes by user ID
+// @access    Private
+router.get("/:id", auth, async (req, res) => {
+  try {
+    if(req.user.id !== req.params.id) {
+      return res.status(401).json({ msg: "User not authorized"});
+    }
+
+    const notes = await Note.find({
+      user: req.params.id
+    })
+    .sort({ date: -1 });
+
+    res.json(notes);
+  }
+  catch (err) {
+    console.error(err.message);
+    if(err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Note not found" })
+    }
+    res.status(500).send("Server error");
+  }
+})
+
+// @route     PUT api/notes/:id
+// @desc      Edit note
+// @access    Private
+router.put("/:id", auth, async (req, res) => {
+  try {
+    const note = await Note.findById(req.params.id);
+
+    if(note.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "User not authorized"});
+    }
+
+    if(!note) {
+      return res.status(404).json({ msg: "Note not found" })
+    }
+
+    note.title = req.body.title;
+    note.text = req.body.text;
+
+    await note.save()
+
+    res.json({ msg: "note updated" });
+  }
+  catch (err) {
+    console.error(err.message);
+    if(err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Note not found" })
+    }
+    res.status(500).send("Server error");
+  }
+})
+
+// @route     DELETE api/notes/:id
+// @desc      Delete note by id
+// @access    Private
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const note = await Note.findByIdAndUpdate(req.params.id);
+
+    if(note.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "User not authorized"});
+    }
+
+    if(!note) {
+      return res.status(404).json({ msg: "Note not found" })
+    }
+
+    await note.remove();
+
+    res.json({ msg: "note deleted"});
+  }
+  catch (err) {
+    console.error(err.message);
+    if(err.kind === "ObjectId") {
+      return res.status(404).json({ msg: "Note not found" })
+    }
+    res.status(500).send("Server error");
+  }
 })
 
 module.exports = router;
