@@ -1,11 +1,18 @@
-import React from 'react';
-import './App.css';
+import React, { Fragment } from "react";
+import { Route } from "react-router-dom";
+import LandingPage from "./template/LandingPage";
+import LoginPage from "./template/LoginPage";
+import RegistrationPage from "./template/RegistrationPage";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <Fragment>
+      <Route exact path="/" component={LandingPage} />
+      <Route exact path="/login" component={LoginPage} />
+      <Route exact path="/registration" component={RegistrationPage} />
+    </Fragment>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,59 @@
+.logo {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 220px;
+}
+
+.contentWrapper {
+  position: relative;
+  max-width: 1170px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.header {
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.paragraph {
+  font-size: 1em;
+  margin: 10px 0;
+  color: #bbbbbb;
+  letter-spacing: 2px;
+}
+
+.buttonWrapper {
+  display: flex;
+  margin: 10px 0;
+}
+
+.buttonWrapper a {
+  font-size: 0.65em;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+  color: #ffffff;
+  width: 140px;
+  height: 40px;
+  border: 2px solid white;
+  background-color: transparent;
+  text-decoration: none;
+  transition: 0.3s background-color, 0.3s color;
+}
+
+.buttonWrapper a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}

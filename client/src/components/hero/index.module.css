@@ -1,0 +1,8 @@
+.hero {
+  background-image: url("../../img//landing-bg.jpg");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
