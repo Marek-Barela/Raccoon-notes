@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const {
     wrapper,
     formContainer,
@@ -36,6 +37,9 @@ const Register = ({ setAlert }) => {
 
     if (password !== password2) {
       setAlert("Passwords are not the same");
+    } else {
+      console.log(name);
+      register({ name, email, password });
     }
   };
 
@@ -45,7 +49,7 @@ const Register = ({ setAlert }) => {
         <div className={formContainer}>
           <Alert />
           <div className={formDecorator}>Sign Up</div>
-          <form className={form} onSubmit={e => onSubmit(e)}>
+          <form className={form} onSubmit={e => onSubmit(e)} noValidate>
             <input
               name="name"
               className={input}
@@ -96,7 +100,8 @@ const Register = ({ setAlert }) => {
 };
 
 const mapDispatchToProps = {
-  setAlert
+  setAlert,
+  register
 };
 
 export default connect(
