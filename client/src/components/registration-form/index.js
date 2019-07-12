@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Hero from "../hero";
+import Alert from "../alert";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
+import { setAlert } from "../../actions/alert";
 
-const Register = () => {
+const Register = ({ setAlert }) => {
   const {
     wrapper,
     formContainer,
@@ -32,7 +35,7 @@ const Register = () => {
     e.preventDefault();
 
     if (password !== password2) {
-      console.log("bad");
+      setAlert("Passwords are not the same");
     }
   };
 
@@ -40,6 +43,7 @@ const Register = () => {
     <Hero>
       <div className={wrapper}>
         <div className={formContainer}>
+          <Alert />
           <div className={formDecorator}>Sign Up</div>
           <form className={form} onSubmit={e => onSubmit(e)}>
             <input
@@ -72,7 +76,7 @@ const Register = () => {
             <input
               name="password2"
               className={input}
-              type="new-password"
+              type="password"
               autoComplete="new-password"
               placeholder="Confirm Password"
               value={password2}
@@ -91,4 +95,11 @@ const Register = () => {
   );
 };
 
-export default Register;
+const mapDispatchToProps = {
+  setAlert
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Register);
