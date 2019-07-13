@@ -38,7 +38,6 @@ const Register = ({ setAlert, register }) => {
     if (password !== password2) {
       setAlert("Passwords are not the same");
     } else {
-      console.log(name);
       register({ name, email, password });
     }
   };
