@@ -1,10 +1,16 @@
 import React from "react";
 import Hero from "../hero";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import styles from "./index.module.css";
 
-const index = () => {
+const Landing = ({ isAuthenticated }) => {
   const { contentWrapper, header, paragraph, buttonWrapper } = styles;
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
+
   return (
     <Hero>
       <div className={contentWrapper}>
@@ -19,4 +25,11 @@ const index = () => {
   );
 };
 
-export default index;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Landing);
