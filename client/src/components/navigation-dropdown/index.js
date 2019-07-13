@@ -1,14 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
 import style from "./index.module.css";
 
-const Dropdown = () => {
+const Dropdown = ({ user }) => {
   const { dropdown, dropdownElem, list, listElem, listMail } = style;
+  let email = "";
+  let name = "";
+
+  if (user !== null) {
+    email = user.email;
+    name = `${user.name} \u25BC`;
+  }
+
   return (
     <ul className={dropdown}>
       <li className={dropdownElem}>
-        Marek &#9660;
+        {name}
         <ul className={list}>
-          <li className={listMail}>ted@gmail.com</li>
+          <li className={listMail}>{email}</li>
           <li className={listElem}>Logout</li>
         </ul>
       </li>
@@ -16,4 +25,11 @@ const Dropdown = () => {
   );
 };
 
-export default Dropdown;
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Dropdown);
