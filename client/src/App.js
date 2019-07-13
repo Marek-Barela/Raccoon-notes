@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import LandingPage from "./template/LandingPage";
 import LoginPage from "./template/LoginPage";
 import RegistrationPage from "./template/RegistrationPage";
-import DashboardPage from "./template/Dashboard";
+import DashboardPage from "./template/DashboardPage";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import store from "./store/store";
