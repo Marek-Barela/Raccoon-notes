@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import LandingPage from "./template/LandingPage";
 import LoginPage from "./template/LoginPage";
 import RegistrationPage from "./template/RegistrationPage";
+import DashboardPage from "./template/Dashboard";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
 import store from "./store/store";
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/registration" component={RegistrationPage} />
+          <Route exact path="/dashboard" component={DashboardPage} />
         </Fragment>
       </BrowserRouter>
     </Provider>
