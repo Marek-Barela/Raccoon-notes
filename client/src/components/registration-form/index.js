@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Hero from "../hero";
 import Alert from "../alert";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import styles from "./index.module.css";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 
-const Register = ({ setAlert, register }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const {
     wrapper,
     formContainer,
@@ -41,6 +41,10 @@ const Register = ({ setAlert, register }) => {
       register({ name, email, password });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Hero>
@@ -103,7 +107,11 @@ const mapDispatchToProps = {
   register
 };
 
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Register);
