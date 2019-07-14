@@ -1,0 +1,5 @@
+.editor {
+  width: calc(100% - 250px);
+  height: calc(100vh - 150px);
+  border: none;
+}

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { setAlert } from "./alert";
 import { GET_NOTES, GET_NOTES_ERROR } from "./types";
 
 export const getUserNotes = userID => async dispatch => {

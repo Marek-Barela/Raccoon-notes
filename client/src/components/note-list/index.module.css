@@ -1,5 +1,6 @@
 .list {
-  height: calc(100vh - 56px);
+  margin-top: 50px;
+  height: calc(100vh - 106px) !important;
   min-width: 250px;
   max-width: 250px;
   border-right: 2px solid rgba(0, 0, 0, 0.3);
@@ -9,13 +10,50 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 53px;
+  width: 100%;
   font-size: 0.65em;
   font-weight: bold;
-  padding: 12px 16px;
+  padding: 13px 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-  text-align: center;
   letter-spacing: 1px;
+}
+
+.createNoteContainer {
+  position: fixed;
+  width: 250px;
+  z-index: 900;
+}
+
+.createNoteContainer input {
+  width: 100%;
+}
+
+.addNoteButton {
+  width: 100%;
+  border: 0;
+  height: 50px;
+  outline: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: #333333;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  color: #ffffff;
+  transition: 0.3s background-color, 0.3s color;
+  cursor: pointer;
+}
+
+.addNoteButton:hover {
+  background-color: #ffffff;
+  color: #333333;
 }
