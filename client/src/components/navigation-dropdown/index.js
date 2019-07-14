@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import style from "./index.module.css";
+import { logout } from "../../actions/auth";
 
-const Dropdown = ({ user }) => {
+const Dropdown = ({ user, logout }) => {
   const { dropdown, dropdownElem, list, listElem, listMail } = style;
   let email = "";
   let name = "";
@@ -18,12 +19,16 @@ const Dropdown = ({ user }) => {
         {name}
         <ul className={list}>
           <li className={listMail}>{email}</li>
-          <li className={listElem}>Logout</li>
+          <li className={listElem} onClick={logout}>Logout</li>
         </ul>
       </li>
     </ul>
   );
 };
+
+const mapDispatchToProps = {
+  logout
+}
 
 const mapStateToProps = state => ({
   user: state.auth.user
@@ -31,5 +36,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Dropdown);

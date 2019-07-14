@@ -6,7 +6,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 
-const Login = ({ login, isAuthenticated }) => {
+const Login = ({ login, auth: { isAuthenticated, token } }) => {
   const {
     wrapper,
     formContainer,
@@ -34,7 +34,7 @@ const Login = ({ login, isAuthenticated }) => {
     login(email, password);
   };
 
-  if (isAuthenticated) {
+  if (isAuthenticated && token !== null) {
     return <Redirect to="/dashboard" />;
   }
 
@@ -81,7 +81,7 @@ const mapDispatchToProps = {
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  auth: state.auth
 });
 
 export default connect(
