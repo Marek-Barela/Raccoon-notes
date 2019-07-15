@@ -11,12 +11,14 @@ const NoteElement = ({ data, setNoteInEditor, activeNote }) => {
     title = title.substring(0, 20) + "...";
   }
 
-  if (text.length > 20) {
-    text = text.substring(0, 30) + "...";
+  if (text.length > 50) {
+    text = text.substring(0, 50) + "...";
   }
 
   const selectNote = data => {
-    setNoteInEditor(data);
+    if (activeNote !== data._id) {
+      setNoteInEditor(data);
+    }
   };
 
   const elementStyling =

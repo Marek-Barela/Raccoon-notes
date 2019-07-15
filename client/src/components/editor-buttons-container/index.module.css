@@ -1,0 +1,17 @@
+.wrapper {
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333333;
+  color: #ffffff;
+  margin: 0 10px;
+  outline: 0;
+  cursor: pointer;
+}

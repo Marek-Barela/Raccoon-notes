@@ -1,10 +1,5 @@
 .listElement {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  height: 60px;
+  height: 100px;
   width: 100%;
   font-size: 0.7em;
   padding: 13px 16px;
@@ -15,11 +10,11 @@
 }
 
 .listElement:hover {
-  background-color: rgba(0, 0, 0, 0.16);
+  background-color: rgba(143, 164, 202, 0.2);
 }
 
 .activeElement {
-  background-color: rgba(0, 0, 0, 0.25) !important;
+  background-color: rgba(143, 164, 202, 0.5) !important;
 }
 
 .listElement p {
