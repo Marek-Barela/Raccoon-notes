@@ -1,17 +1,31 @@
 .wrapper {
-  padding-top: 60px;
+  padding-top: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 0 60px;
 }
 
 .wrapper button {
-  width: 200px;
-  height: 40px;
+  font-size: 0.7em;
+  font-weight: bold;
+  width: 70px;
+  height: 35px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: #333333;
   color: #ffffff;
-  margin: 0 10px;
+  margin: 0 6px;
   outline: 0;
   cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.wrapper .accept {
+  width: 170px;
+  background-color: #00a82d;
+}
+
+.wrapper .danger {
+  width: 55px;
+  background-color: red;
 }
