@@ -9,3 +9,4 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 export const GET_NOTES = "GET_NOTES";
 export const GET_NOTES_ERROR = "GET_NOTES_ERROR";
+export const SET_NOTE_IN_EDITOR = "SET_NOTE_IN_EDITOR";

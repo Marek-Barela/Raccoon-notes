@@ -1,12 +1,44 @@
 import React from "react";
+import { connect } from "react-redux";
+import { setNoteInEditor } from "../../actions/editor";
+import styles from "./index.module.css";
 
-const NoteElement = ({ data }) => {
-  let { title } = data;
+const NoteElement = ({ data, setNoteInEditor, activeNote }) => {
+  const { listElement, activeElement } = styles;
+  let { title, text } = data;
+
   if (title.length > 20) {
     title = title.substring(0, 20) + "...";
   }
 
-  return <li>{title}</li>;
+  if (text.length > 20) {
+    text = text.substring(0, 30) + "...";
+  }
+
+  const selectNote = data => {
+    setNoteInEditor(data);
+  };
+
+  const elementStyling =
+    activeNote !== data._id ? listElement : `${listElement} + ${activeElement}`;
+
+  return (
+    <li className={elementStyling} onClick={() => selectNote(data)}>
+      <p>{title}</p>
+      <span>{text}</span>
+    </li>
+  );
 };
 
-export default NoteElement;
+const mapStateToProps = state => ({
+  activeNote: state.editor.activeNote
+});
+
+const mapDispatchToProps = {
+  setNoteInEditor
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NoteElement);

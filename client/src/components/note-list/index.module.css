@@ -16,19 +16,6 @@
   flex-direction: column;
 }
 
-.list li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 53px;
-  width: 100%;
-  font-size: 0.65em;
-  font-weight: bold;
-  padding: 13px 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-  letter-spacing: 1px;
-}
-
 .createNoteContainer {
   position: fixed;
   width: 250px;
@@ -49,11 +36,10 @@
   background-color: #333333;
   border: 1px solid rgba(0, 0, 0, 0.16);
   color: #ffffff;
-  transition: 0.3s background-color, 0.3s color;
+  transition: 0.3s background-color;
   cursor: pointer;
 }
 
 .addNoteButton:hover {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #111111;
 }

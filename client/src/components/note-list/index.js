@@ -7,15 +7,15 @@ import { connect } from "react-redux";
 const NoteList = ({ notes }) => {
   const { list, addNoteButton, createNoteContainer } = styles;
 
-  const [listTitleData, setListTitleData] = useState({
+  const [listData, setListData] = useState({
     title: "",
     addingNote: false
   });
 
-  const { addingNote } = listTitleData;
+  const { addingNote } = listData;
 
   const switchAddingNote = () => {
-    setListTitleData({ ...listTitleData, addingNote: !addingNote });
+    setListData({ ...listData, addingNote: !addingNote });
   };
 
   return (

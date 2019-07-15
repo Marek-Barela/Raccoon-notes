@@ -1,4 +1,4 @@
-import { GET_NOTES, GET_NOTES_ERROR } from "../actions/types";
+import { GET_NOTES, GET_NOTES_ERROR, LOGOUT } from "../actions/types";
 
 const initialState = {
   notes: [],
@@ -22,6 +22,14 @@ export default (state = initialState, action) => {
         error: payload,
         loading: false
       };
+    case LOGOUT: {
+      return {
+        ...state,
+        notes: [],
+        loading: true,
+        error: {}
+      }
+    }
     default: {
       return { ...state };
     }
