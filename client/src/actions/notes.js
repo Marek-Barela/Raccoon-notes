@@ -4,7 +4,8 @@ import {
   GET_NOTES_ERROR,
   UPDATE_NOTES,
   SET_UPDATED_NOTE_IN_EDITOR,
-  SET_NEW_NOTE
+  SET_NEW_NOTE,
+  DELETE_NOTE
 } from "./types";
 
 export const getUserNotes = userID => async dispatch => {
@@ -65,6 +66,18 @@ export const createNewNote = () => async dispatch => {
     dispatch({
       type: SET_NEW_NOTE,
       payload: res.data
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deleteCurrentNote = id => async dispatch => {
+  try {
+    await axios.delete(`/api/notes/${id}`);
+    dispatch({
+      type: DELETE_NOTE,
+      payload: id
     });
   } catch (err) {
     console.log(err);

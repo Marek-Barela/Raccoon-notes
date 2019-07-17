@@ -14,3 +14,4 @@ export const SET_UPDATED_NOTE_IN_EDITOR = "SET_NOTE_IN_EDITOR";
 export const UPDATE_NOTES = "UPDATE_NOTES";
 export const CANCEL_CHANGES = "CANCEL_CHANGES";
 export const SET_NEW_NOTE = "SET_NEW_NOTE";
+export const DELETE_NOTE = "DELETE_NOTE";

@@ -2,6 +2,7 @@ import {
   SET_NOTE_IN_EDITOR,
   SET_UPDATED_NOTE_IN_EDITOR,
   CANCEL_CHANGES,
+  DELETE_NOTE,
   LOGOUT
 } from "../actions/types";
 
@@ -28,6 +29,7 @@ export default (state = initialState, action) => {
         activeNote: _id
       };
     }
+    case DELETE_NOTE:
     case LOGOUT: {
       return {
         ...state,

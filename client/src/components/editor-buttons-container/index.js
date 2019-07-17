@@ -1,5 +1,5 @@
 import React from "react";
-import { updateUserNotes } from "../../actions/notes";
+import { updateUserNotes, deleteCurrentNote } from "../../actions/notes";
 import { cancelEditorChanges } from "../../actions/editor";
 import styles from "./index.module.css";
 import { connect } from "react-redux";
@@ -10,12 +10,13 @@ const EditorButtonsContainer = ({
   editedNote,
   updateUserNotes,
   cancelEditorChanges,
-  dataAreDifferent
+  dataAreDifferent,
+  deleteCurrentNote
 }) => {
   const { wrapper, accept, cancel } = styles;
   return (
     <div className={wrapper}>
-      <span>x</span>
+      <button onClick={() => deleteCurrentNote(editedNote)} />
       <div>
         {dataAreDifferent() ? (
           <>
@@ -44,7 +45,8 @@ const EditorButtonsContainer = ({
 
 const mapDispatchToProps = {
   updateUserNotes,
-  cancelEditorChanges
+  cancelEditorChanges,
+  deleteCurrentNote
 };
 
 export default connect(

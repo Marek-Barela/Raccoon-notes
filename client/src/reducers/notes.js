@@ -3,7 +3,8 @@ import {
   GET_NOTES_ERROR,
   LOGOUT,
   UPDATE_NOTES,
-  SET_NEW_NOTE
+  SET_NEW_NOTE,
+  DELETE_NOTE
 } from "../actions/types";
 
 const initialState = {
@@ -50,6 +51,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notes: [payload, ...state.notes]
+      };
+    }
+    case DELETE_NOTE: {
+      return {
+        ...state,
+        notes: state.notes.filter(note => {
+          return note._id !== payload;
+        })
       };
     }
     case LOGOUT: {
