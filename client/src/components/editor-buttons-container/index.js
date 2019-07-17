@@ -14,9 +14,16 @@ const EditorButtonsContainer = ({
   deleteCurrentNote
 }) => {
   const { wrapper, accept, cancel } = styles;
+
+  const deleteNote = note => {
+    if (window.confirm("Are you sure you want to delete this note?")) {
+      deleteCurrentNote(note);
+    }
+  };
+
   return (
     <div className={wrapper}>
-      <button onClick={() => deleteCurrentNote(editedNote)} />
+      <button onClick={() => deleteNote(editedNote)} />
       <div>
         {dataAreDifferent() ? (
           <>

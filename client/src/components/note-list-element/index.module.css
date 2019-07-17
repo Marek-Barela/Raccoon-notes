@@ -1,5 +1,5 @@
 .listElement {
-  height: 100px;
+  min-height: 100px;
   width: 100%;
   font-size: 0.7em;
   padding: 13px 16px;

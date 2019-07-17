@@ -1,4 +1,5 @@
 import React from "react";
+import removeHTMLTags from "../../utils/removeHTMLTags";
 import { connect } from "react-redux";
 import { setNoteInEditor } from "../../actions/editor";
 import styles from "./index.module.css";
@@ -11,8 +12,8 @@ const NoteElement = ({ data, setNoteInEditor, activeNote }) => {
     title = title.substring(0, 20) + "...";
   }
 
-  if (text.length > 50) {
-    text = text.substring(0, 50) + "...";
+  if (text.length > 100) {
+    text = text.substring(0, 100) + "...";
   }
 
   const selectNote = data => {
@@ -28,7 +29,7 @@ const NoteElement = ({ data, setNoteInEditor, activeNote }) => {
   return (
     <li className={elementStyling} onClick={() => selectNote(data)}>
       <p>{title}</p>
-      <span>{text}</span>
+      <span>{removeHTMLTags(text)}</span>
     </li>
   );
 };
