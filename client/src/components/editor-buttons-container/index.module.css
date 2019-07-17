@@ -6,7 +6,7 @@
 }
 
 .wrapper button {
-  font-size: 0.7em;
+  font-size: 0.6em;
   font-weight: bold;
   width: 70px;
   height: 35px;
@@ -21,11 +21,9 @@
 }
 
 .wrapper .accept {
-  width: 170px;
   background-color: #00a82d;
 }
 
 .wrapper .danger {
   width: 55px;
-  background-color: red;
 }

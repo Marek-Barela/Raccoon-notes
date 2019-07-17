@@ -17,8 +17,6 @@ const NoteEditor = ({ data }) => {
     text: ""
   });
 
-  console.log(data);
-
   useEffect(() => {
     setEditorTitle({
       title: data.title
@@ -60,7 +58,11 @@ const NoteEditor = ({ data }) => {
           className={editor}
           onChange={val => onEditorChange(val)}
         />
-        <EditorButtonsContainer />
+        <EditorButtonsContainer
+          editedTitle={title}
+          editedText={text}
+          editedNote={data.id}
+        />
       </div>
     )
   );

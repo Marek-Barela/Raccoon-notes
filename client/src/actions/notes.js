@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_NOTES, GET_NOTES_ERROR } from "./types";
+import {
+  GET_NOTES,
+  GET_NOTES_ERROR,
+  UPDATE_NOTES,
+  SET_UPDATED_NOTE_IN_EDITOR
+} from "./types";
 
 export const getUserNotes = userID => async dispatch => {
   try {
@@ -14,5 +19,29 @@ export const getUserNotes = userID => async dispatch => {
       type: GET_NOTES_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
+  }
+};
+
+export const updateUserNotes = (id, title, text) => async dispatch => {
+  const config = {
+    headers: {
+      "Content-type": "application/json"
+    }
+  };
+  const body = JSON.stringify({ title, text });
+
+  try {
+    await axios.put(`/api/notes/${id}`, body, config);
+
+    dispatch({
+      type: UPDATE_NOTES,
+      payload: { id, title, text }
+    });
+    dispatch({
+      type: SET_UPDATED_NOTE_IN_EDITOR,
+      payload: { _id: id, title, text }
+    });
+  } catch (err) {
+    console.log(err);
   }
 };

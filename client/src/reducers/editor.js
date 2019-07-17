@@ -1,4 +1,8 @@
-import { SET_NOTE_IN_EDITOR, LOGOUT } from "../actions/types";
+import {
+  SET_NOTE_IN_EDITOR,
+  SET_UPDATED_NOTE_IN_EDITOR,
+  LOGOUT
+} from "../actions/types";
 
 const initialState = {
   id: null,
@@ -11,7 +15,8 @@ const initialState = {
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case SET_NOTE_IN_EDITOR: {
+    case SET_NOTE_IN_EDITOR:
+    case SET_UPDATED_NOTE_IN_EDITOR: {
       const { _id, title, text } = payload;
       return {
         ...state,
