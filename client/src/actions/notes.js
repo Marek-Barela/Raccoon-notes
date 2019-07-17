@@ -3,7 +3,8 @@ import {
   GET_NOTES,
   GET_NOTES_ERROR,
   UPDATE_NOTES,
-  SET_UPDATED_NOTE_IN_EDITOR
+  SET_UPDATED_NOTE_IN_EDITOR,
+  SET_NEW_NOTE
 } from "./types";
 
 export const getUserNotes = userID => async dispatch => {
@@ -28,6 +29,9 @@ export const updateUserNotes = (id, title, text) => async dispatch => {
       "Content-type": "application/json"
     }
   };
+  if (title.length === 0) {
+    title = "Untitled";
+  }
   const body = JSON.stringify({ title, text });
 
   try {
@@ -40,6 +44,27 @@ export const updateUserNotes = (id, title, text) => async dispatch => {
     dispatch({
       type: SET_UPDATED_NOTE_IN_EDITOR,
       payload: { _id: id, title, text }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const createNewNote = () => async dispatch => {
+  const config = {
+    headers: {
+      "Content-type": "application/json"
+    }
+  };
+
+  const body = JSON.stringify({ title: "Untitled", text: "" });
+
+  try {
+    const res = await axios.post(`/api/notes`, body, config);
+
+    dispatch({
+      type: SET_NEW_NOTE,
+      payload: res.data
     });
   } catch (err) {
     console.log(err);

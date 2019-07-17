@@ -2,7 +2,8 @@ import {
   GET_NOTES,
   GET_NOTES_ERROR,
   LOGOUT,
-  UPDATE_NOTES
+  UPDATE_NOTES,
+  SET_NEW_NOTE
 } from "../actions/types";
 
 const initialState = {
@@ -43,6 +44,12 @@ export default (state = initialState, action) => {
 
           return note;
         })
+      };
+    }
+    case SET_NEW_NOTE: {
+      return {
+        ...state,
+        notes: [payload, ...state.notes]
       };
     }
     case LOGOUT: {

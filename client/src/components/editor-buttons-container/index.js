@@ -13,7 +13,6 @@ const EditorButtonsContainer = ({
   dataAreDifferent
 }) => {
   const { wrapper, accept, cancel } = styles;
-  console.log(dataAreDifferent());
   return (
     <div className={wrapper}>
       <span>x</span>

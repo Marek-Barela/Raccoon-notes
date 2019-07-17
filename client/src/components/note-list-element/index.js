@@ -16,6 +16,7 @@ const NoteElement = ({ data, setNoteInEditor, activeNote }) => {
   }
 
   const selectNote = data => {
+    //Prevent if note is already selected
     if (activeNote !== data._id) {
       setNoteInEditor(data);
     }
