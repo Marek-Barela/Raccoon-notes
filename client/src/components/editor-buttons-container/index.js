@@ -2,6 +2,7 @@ import React from "react";
 import { updateUserNotes, deleteCurrentNote } from "../../actions/notes";
 import { cancelEditorChanges } from "../../actions/editor";
 import styles from "./index.module.css";
+import trash from "../../img/delete-button.svg";
 import { connect } from "react-redux";
 
 const EditorButtonsContainer = ({
@@ -13,7 +14,7 @@ const EditorButtonsContainer = ({
   dataAreDifferent,
   deleteCurrentNote
 }) => {
-  const { wrapper, accept, cancel } = styles;
+  const { wrapper, accept, cancel, trashIcon } = styles;
 
   const deleteNote = note => {
     if (window.confirm("Are you sure you want to delete this note?")) {
@@ -23,7 +24,11 @@ const EditorButtonsContainer = ({
 
   return (
     <div className={wrapper}>
-      <button onClick={() => deleteNote(editedNote)} />
+      <img
+        src={trash}
+        className={trashIcon}
+        onClick={() => deleteNote(editedNote)}
+      />
       <div>
         {dataAreDifferent() ? (
           <>

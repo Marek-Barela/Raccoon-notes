@@ -28,3 +28,13 @@
   background-color: #333333;
   cursor: pointer;
 }
+
+.trashIcon {
+  width: 30px;
+  cursor: pointer;
+  transition: 0.2s transform;
+}
+
+.trashIcon:hover {
+  transform: rotate(-15deg);
+}
