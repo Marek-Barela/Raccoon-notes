@@ -42,7 +42,6 @@ export default (state = initialState, action) => {
               text
             };
           }
-
           return note;
         })
       };
