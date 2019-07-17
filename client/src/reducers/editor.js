@@ -1,6 +1,7 @@
 import {
   SET_NOTE_IN_EDITOR,
   SET_UPDATED_NOTE_IN_EDITOR,
+  CANCEL_CHANGES,
   LOGOUT
 } from "../actions/types";
 
@@ -36,6 +37,9 @@ export default (state = initialState, action) => {
         editorIsOpen: false,
         activeNote: null
       };
+    }
+    case CANCEL_CHANGES: {
+      return { ...state };
     }
     default: {
       return { ...state };

@@ -44,6 +44,11 @@ const NoteEditor = ({ data }) => {
     });
   };
 
+  const isDifferenceBetweenNotes = () => {
+    if (data.title !== title || data.text !== text) return true;
+    else return false;
+  };
+
   return (
     editorIsOpen && (
       <div className={wrapper}>
@@ -62,6 +67,7 @@ const NoteEditor = ({ data }) => {
           editedTitle={title}
           editedText={text}
           editedNote={data.id}
+          dataAreDifferent={isDifferenceBetweenNotes}
         />
       </div>
     )

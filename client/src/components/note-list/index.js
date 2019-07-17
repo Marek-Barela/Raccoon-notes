@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NoteElement from "../note-list-element";
 import { Scrollbars } from "react-custom-scrollbars";
 import styles from "./index.module.css";
@@ -7,24 +7,10 @@ import { connect } from "react-redux";
 const NoteList = ({ notes }) => {
   const { list, addNoteButton, createNoteContainer } = styles;
 
-  const [listData, setListData] = useState({
-    title: "",
-    addingNote: false
-  });
-
-  const { addingNote } = listData;
-
-  const switchAddingNote = () => {
-    setListData({ ...listData, addingNote: !addingNote });
-  };
-
   return (
     <aside>
       <div className={createNoteContainer}>
-        <button className={addNoteButton} onClick={() => switchAddingNote()}>
-          {addingNote ? "Cancel" : "Create note"}
-        </button>
-        {addingNote && <input />}
+        <button className={addNoteButton}>Create note</button>
       </div>
       <Scrollbars thumbSize={200} className={list}>
         <ul>
