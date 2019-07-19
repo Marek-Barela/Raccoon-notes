@@ -27,6 +27,7 @@ const EditorButtonsContainer = ({
       <img
         src={trash}
         className={trashIcon}
+        alt="Delete"
         onClick={() => deleteNote(editedNote)}
       />
       <div>
