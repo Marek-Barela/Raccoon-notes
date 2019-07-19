@@ -13,6 +13,12 @@ const Dropdown = ({ user, logout }) => {
     name = `${user.name} \u25BC`;
   }
 
+  if (user.name === undefined) {
+    name = ""
+  }
+
+  console.log(name)
+
   return (
     <ul className={dropdown}>
       <li className={dropdownElem}>
