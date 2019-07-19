@@ -9,6 +9,7 @@ const NoteEditor = ({ data }) => {
   const { editor, wrapper, noteTitle } = styles;
   const { editorIsOpen } = data;
   const emptyEdiotrState = "<p><br></p>";
+  
   const [editorTitle, setEditorTitle] = useState({
     title: ""
   });
@@ -31,6 +32,7 @@ const NoteEditor = ({ data }) => {
 
   const { title } = editorTitle;
   const { text } = editorText;
+  let textValue = text;
 
   const onEditorChange = value => {
     setEditorText({
@@ -45,7 +47,9 @@ const NoteEditor = ({ data }) => {
   };
 
   const isDifferenceBetweenNotes = () => {
-    if (data.title !== title || (data.text !== text && text !== emptyEdiotrState)) return true;
+    //Prevent from editor issue 
+    if(textValue === emptyEdiotrState && data.text !== emptyEdiotrState) { textValue = "" };
+    if (data.title !== title || data.text !== textValue ) return true;
     else return false;
   };
 
