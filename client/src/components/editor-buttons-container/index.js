@@ -11,7 +11,7 @@ const EditorButtonsContainer = ({
   editedNote,
   updateUserNotes,
   cancelEditorChanges,
-  dataAreDifferent,
+  dataAreDifferent = false,
   deleteCurrentNote
 }) => {
   const { wrapper, accept, cancel, trashIcon } = styles;
