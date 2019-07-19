@@ -8,7 +8,7 @@ import "react-quill/dist/quill.snow.css";
 const NoteEditor = ({ data }) => {
   const { editor, wrapper, noteTitle } = styles;
   const { editorIsOpen } = data;
-
+  const emptyEdiotrState = "<p><br></p>";
   const [editorTitle, setEditorTitle] = useState({
     title: ""
   });
@@ -45,7 +45,7 @@ const NoteEditor = ({ data }) => {
   };
 
   const isDifferenceBetweenNotes = () => {
-    if (data.title !== title || data.text !== text) return true;
+    if (data.title !== title || (data.text !== text && text !== emptyEdiotrState)) return true;
     else return false;
   };
 
