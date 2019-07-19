@@ -3,8 +3,8 @@
   height: calc(100vh - 106px) !important;
   min-width: 280px;
   max-width: 280px;
-  border-right: 2px solid rgba(0, 0, 0, 0.3);
-  overflow-x: hidden;
+  background-color: #383d40;
+  overflow-x: hidden !important;
 }
 
 .list ul {
@@ -15,33 +15,41 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .createNoteContainer {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2f3436;
   width: 280px;
+  height: 50px;
   z-index: 900;
 }
 
-.createNoteContainer input {
-  width: 100%;
+.createNoteContainer p {
+  font-size: 0.7em;
+  color: #ffffff;
+  margin-left: 10px;
+  text-transform: uppercase;
 }
 
-.addNoteButton {
-  width: 100%;
-  border: 0;
-  height: 50px;
+.createNoteBtn {
+  margin-right: 10px;
+  background-color: transparent;
+  color: #aaaaaa;
+  border: none;
+  font-size: 2em;
   outline: 0;
-  font-weight: bold;
-  letter-spacing: 1px;
-  background-color: #333333;
-  border: 1px solid rgba(0, 0, 0, 0.16);
-  color: #ffffff;
-  transition: 0.3s background-color;
   cursor: pointer;
 }
 
-.addNoteButton:hover {
-  background-color: #111111;
+.createNoteBtn:hover {
+  color: #ffffff;
+}
+
+.verticalScroll {
+  background-color: #ffffff;
 }

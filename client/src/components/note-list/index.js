@@ -6,15 +6,26 @@ import styles from "./index.module.css";
 import { connect } from "react-redux";
 
 const NoteList = ({ notes, createNewNote }) => {
-  const { list, addNoteButton, createNoteContainer } = styles;
+  const { list, createNoteBtn, createNoteContainer, verticalScroll } = styles;
   return (
     <aside>
       <div className={createNoteContainer}>
-        <button className={addNoteButton} onClick={() => createNewNote()}>
-          Create note
+        <p>My notes</p>
+        <button
+          className={createNoteBtn}
+          title="Create note"
+          onClick={() => createNewNote()}
+        >
+          +
         </button>
       </div>
-      <Scrollbars thumbSize={200} className={list}>
+      <Scrollbars
+        thumbSize={60}
+        className={list}
+        renderThumbVertical={props => (
+          <div {...props} className={verticalScroll} />
+        )}
+      >
         <ul>
           {notes.map(note => {
             return <NoteElement key={note._id} data={note} />;

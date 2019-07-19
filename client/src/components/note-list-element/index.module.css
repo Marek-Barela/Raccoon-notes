@@ -1,23 +1,26 @@
 .listElement {
-  min-height: 100px;
+  color: #aaaaaa;
+  min-height: 40px;
   width: 100%;
   font-size: 0.7em;
-  padding: 13px 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  padding: 8px 16px;
   letter-spacing: 1px;
   user-select: none;
   cursor: pointer;
 }
 
 .listElement:hover {
-  background-color: rgba(143, 164, 202, 0.2);
+  background-color: rgba(64, 70, 74, 0.7);
 }
 
 .activeElement {
-  background-color: rgba(143, 164, 202, 0.5) !important;
+  color: #ffffff;
+  background-color: #40464a !important;
+  border-left: 3px solid #ffffff;
 }
 
 .listElement p {
+  font-size: 0.85em;
   font-weight: bold;
   margin: 4px 0;
 }
