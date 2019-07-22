@@ -13,8 +13,17 @@ const Dropdown = ({ user, logout }) => {
     name = `${user.name} \u25BC`;
   }
 
-  if (user.name === undefined) {
+  if (user.name === undefined || user.email === undefined) {
     name = ""
+    email = ""
+  }
+
+  if (name.length > 15) {
+    name = name.substring(0, 15) + "...";
+  }
+
+  if (email.length > 20) {
+    email = email.substring(0, 20) + "...";
   }
 
   return (
