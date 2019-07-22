@@ -10,7 +10,6 @@ export default (state = initialState, action) => {
   switch (type) {
     case SWITCH_SIDEBAR_VISIBLITY: {
       return {
-        ...state,
         isSidebarActive: !state.isSidebarActive
       };
     }
