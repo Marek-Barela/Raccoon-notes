@@ -48,7 +48,7 @@ const NoteEditor = ({ data }) => {
 
   const isDifferenceBetweenNotes = () => {
     //Prevent from editor issue 
-    if(textValue === emptyEdiotrState && data.text !== emptyEdiotrState) { textValue = "" };
+    if (textValue === emptyEdiotrState && data.text !== emptyEdiotrState) { textValue = "" };
     if (data.title !== title || data.text !== textValue ) return true;
     else return false;
   };

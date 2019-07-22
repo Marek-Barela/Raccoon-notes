@@ -17,8 +17,6 @@ const Dropdown = ({ user, logout }) => {
     name = ""
   }
 
-  console.log(name)
-
   return (
     <ul className={dropdown}>
       <li className={dropdownElem}>
