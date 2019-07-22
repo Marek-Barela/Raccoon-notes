@@ -8,8 +8,8 @@ const NoteElement = ({ data, setNoteInEditor, activeNote }) => {
   const { listElement, activeElement } = styles;
   let { title, text } = data;
 
-  if (title.length > 20) {
-    title = title.substring(0, 20) + "...";
+  if (title.length > 22) {
+    title = title.substring(0, 22) + "...";
   }
 
   if (text.length > 50) {
