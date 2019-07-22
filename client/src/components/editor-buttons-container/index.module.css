@@ -2,7 +2,7 @@
   padding-top: 50px;
   display: flex;
   justify-content: space-between;
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 .wrapper button {
@@ -38,10 +38,4 @@
 
 .trashIcon:hover {
   transform: rotate(-15deg);
-}
-
-@media (min-width: 500px) {
-  .wrapper {
-    margin: 0 60px;
-  }
 }
