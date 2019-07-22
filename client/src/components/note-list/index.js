@@ -5,10 +5,20 @@ import { createNewNote } from "../../actions/notes";
 import styles from "./index.module.css";
 import { connect } from "react-redux";
 
-const NoteList = ({ notes, createNewNote }) => {
-  const { list, createNoteBtn, createNoteContainer, verticalScroll } = styles;
+const NoteList = ({ notes, createNewNote, isSidebarActive }) => {
+  const {
+    aside,
+    asideHidden,
+    list,
+    createNoteBtn,
+    createNoteContainer,
+    verticalScroll
+  } = styles;
+
+  const sidebarStyling = isSidebarActive ? aside : `${aside} + ${asideHidden}`;
+
   return (
-    <aside>
+    <aside className={sidebarStyling}>
       <div className={createNoteContainer}>
         <p>My notes</p>
         <button
@@ -37,7 +47,8 @@ const NoteList = ({ notes, createNewNote }) => {
 };
 
 const mapStateToProps = state => ({
-  notes: state.notes.notes
+  notes: state.notes.notes,
+  isSidebarActive: state.sidebar.isSidebarActive
 });
 
 const mapDispatchToProps = {

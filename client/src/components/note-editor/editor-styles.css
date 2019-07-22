@@ -1,0 +1,5 @@
+@media (max-width: 371px) {
+  .ql-container {
+    height: calc(100% - 25px);
+  }
+}

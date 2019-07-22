@@ -1,3 +1,14 @@
+.aside {
+  position: absolute;
+  transition: 0.4s left;
+  left: 0;
+  z-index: 100;
+}
+
+.asideHidden {
+  left: -280px;
+}
+
 .list {
   margin-top: 50px;
   height: calc(100vh - 106px) !important;

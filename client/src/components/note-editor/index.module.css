@@ -4,7 +4,11 @@
 
 .wrapper {
   width: 100%;
-  width: calc(100% - 280px);
+  transition: 0.4s margin-left, 0.4s width;
+}
+
+.wrapperWidth {
+  width: 100%;
 }
 
 .noteTitle {
@@ -13,4 +17,15 @@
   border: 0;
   padding: 10px 25px;
   outline: 0;
+}
+
+@media (min-width: 660px) {
+  .wrapper {
+    width: calc(100% - 280px);
+    margin-left: 280px;
+  }
+  .wrapperWidth {
+    width: 100%;
+    margin-left: 0px;
+  }
 }

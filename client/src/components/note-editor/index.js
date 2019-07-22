@@ -4,9 +4,10 @@ import EditorButtonsContainer from "../editor-buttons-container";
 import { connect } from "react-redux";
 import styles from "./index.module.css";
 import "react-quill/dist/quill.snow.css";
+import "./editor-styles.css";
 
-const NoteEditor = ({ data }) => {
-  const { editor, wrapper, noteTitle } = styles;
+const NoteEditor = ({ data, isSidebarActive }) => {
+  const { editor, wrapper, wrapperWidth, noteTitle } = styles;
   const { editorIsOpen } = data;
   const emptyEdiotrState = "<p><br></p>";
   
@@ -18,6 +19,7 @@ const NoteEditor = ({ data }) => {
     text: ""
   });
 
+  //Use 2 times Effect due to editor quill issue
   useEffect(() => {
     setEditorTitle({
       title: data.title
@@ -53,9 +55,11 @@ const NoteEditor = ({ data }) => {
     else return false;
   };
 
+  const wrapperStyling = isSidebarActive ? wrapper : `${wrapper} ${wrapperWidth}`;
+
   return (
     editorIsOpen && (
-      <div className={wrapper}>
+      <div className={wrapperStyling}>
         <input
           className={noteTitle}
           spellCheck={false}
@@ -79,7 +83,8 @@ const NoteEditor = ({ data }) => {
 };
 
 const mapStateToProps = state => ({
-  data: state.editor
+  data: state.editor,
+  isSidebarActive: state.sidebar.isSidebarActive
 });
 
 export default connect(

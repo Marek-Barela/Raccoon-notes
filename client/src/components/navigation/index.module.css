@@ -11,6 +11,13 @@
   z-index: 1000;
 }
 
+.switchListButton {
+  position: absolute;
+  left: 20px;
+  border: none;
+  background-color: transparent;
+}
+
 .logo {
   width: 110px;
 }
