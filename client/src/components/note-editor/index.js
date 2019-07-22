@@ -10,7 +10,8 @@ const NoteEditor = ({ data, isSidebarActive }) => {
   const { editor, wrapper, wrapperWidth, noteTitle } = styles;
   const { editorIsOpen } = data;
   const emptyEdiotrState = "<p><br></p>";
-  
+
+  //Use 2 times setState and useEffect due to editor quill issue
   const [editorTitle, setEditorTitle] = useState({
     title: ""
   });
@@ -19,7 +20,6 @@ const NoteEditor = ({ data, isSidebarActive }) => {
     text: ""
   });
 
-  //Use 2 times Effect due to editor quill issue
   useEffect(() => {
     setEditorTitle({
       title: data.title
@@ -83,8 +83,7 @@ const NoteEditor = ({ data, isSidebarActive }) => {
 };
 
 const mapStateToProps = state => ({
-  data: state.editor,
-  isSidebarActive: state.sidebar.isSidebarActive
+  data: state.editor
 });
 
 export default connect(

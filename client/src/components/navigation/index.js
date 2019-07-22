@@ -2,10 +2,8 @@ import React from "react";
 import style from "./index.module.css";
 import LogoImg from "../../img/Raccoon-logo.png";
 import NavigationDropdown from "../navigation-dropdown";
-import { connect } from "react-redux";
-import { switchSidebarView } from "../../actions/sidebar";
 
-const Navigation = ({ switchSidebarView }) => {
+const Navigation = ({ switchSidebarVisiblity }) => {
   const {
     navigation,
     sidebarButtonContainer,
@@ -18,7 +16,7 @@ const Navigation = ({ switchSidebarView }) => {
       <div className={sidebarButtonContainer}>
         <button
           className={switchSidebarButton}
-          onClick={() => switchSidebarView()}
+          onClick={() => switchSidebarVisiblity()}
         >
           &#9776;
         </button>
@@ -31,11 +29,4 @@ const Navigation = ({ switchSidebarView }) => {
   );
 };
 
-const mapDispatchToProps = {
-  switchSidebarView
-};
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Navigation);
+export default Navigation;

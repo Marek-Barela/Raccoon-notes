@@ -1,21 +1,31 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../navigation";
 import DashboardContainer from "../dashboard-container";
 import { getUserNotes } from "../../actions/notes";
 import { connect } from "react-redux";
 
 const Dashboard = ({ userID, getUserNotes }) => {
+  const [dataSidebar, setDataSidebar] = useState({
+    isSidebarActive: true
+  });
+
+  const { isSidebarActive } = dataSidebar;
+
   useEffect(() => {
     if (userID !== null) {
       getUserNotes(userID);
     }
   }, [getUserNotes, userID]);
 
+  const switchSidebarVisiblity = () => {
+    setDataSidebar({ isSidebarActive: !isSidebarActive });
+  };
+
   return (
-    <Fragment>
-      <Navigation />
-      <DashboardContainer />
-    </Fragment>
+    <>
+      <Navigation switchSidebarVisiblity={switchSidebarVisiblity} />
+      <DashboardContainer isSidebarActive={isSidebarActive} />
+    </>
   );
 };
 

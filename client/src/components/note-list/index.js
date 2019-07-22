@@ -47,8 +47,7 @@ const NoteList = ({ notes, createNewNote, isSidebarActive }) => {
 };
 
 const mapStateToProps = state => ({
-  notes: state.notes.notes,
-  isSidebarActive: state.sidebar.isSidebarActive
+  notes: state.notes.notes
 });
 
 const mapDispatchToProps = {
