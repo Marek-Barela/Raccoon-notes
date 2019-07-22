@@ -6,14 +6,27 @@ import { connect } from "react-redux";
 import { switchSidebarView } from "../../actions/sidebar";
 
 const Navigation = ({ switchSidebarView }) => {
-  const { navigation, switchListButton, logo } = style;
+  const {
+    navigation,
+    sidebarButtonContainer,
+    switchSidebarButton,
+    navigationContainer,
+    logo
+  } = style;
   return (
     <nav className={navigation}>
-      <button className={switchListButton} onClick={() => switchSidebarView()}>
-        x
-      </button>
-      <img src={LogoImg} className={logo} alt="Logo" />
-      <NavigationDropdown />
+      <div className={sidebarButtonContainer}>
+        <button
+          className={switchSidebarButton}
+          onClick={() => switchSidebarView()}
+        >
+          &#9776;
+        </button>
+      </div>
+      <div className={navigationContainer}>
+        <img src={LogoImg} className={logo} alt="Logo" />
+        <NavigationDropdown />
+      </div>
     </nav>
   );
 };

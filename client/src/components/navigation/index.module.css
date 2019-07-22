@@ -3,7 +3,6 @@
   height: 56px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   background-color: #ffffff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -11,19 +10,46 @@
   z-index: 1000;
 }
 
-.switchListButton {
-  position: absolute;
-  left: 20px;
+.sidebarButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+}
+
+.navigationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.switchSidebarButton {
+  padding: 7px 10px;
   border: none;
+  border-radius: 100%;
   background-color: transparent;
+  outline: 0;
+  cursor: pointer;
+  transition: 0.3s background-color;
+  z-index: 10;
+}
+
+.switchSidebarButton:hover {
+  background-color: #dfdfdf;
 }
 
 .logo {
   width: 110px;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 660px) {
   .logo {
     width: 140px;
+  }
+
+  .navigationContainer {
+    margin: 0 80px;
   }
 }
