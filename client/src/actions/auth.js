@@ -38,7 +38,7 @@ export const register = ({ name, email, password }) => async dispatch => {
   };
 
   const body = JSON.stringify({ name, email, password });
-  const helloMessage = JSON.stringify({ title: "Hello user :)", text: "<p>Raccoon notes is a exellent tool to keep your notes and ideas in one place.</p><p>You can get access to your notes from any place and time.</p>" });
+  const helloMessage = JSON.stringify({ title: "Welcome in Raccoon :)", text: "<p>Raccoon notes is a exellent tool to keep your notes and ideas in one place.</p><p>You can get access to your notes from any place and time.</p>" });
 
   try {
     const res = await axios.post("/api/users", body, config);
