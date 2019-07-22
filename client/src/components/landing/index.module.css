@@ -12,15 +12,17 @@
 }
 
 .header {
-  font-size: 2em;
+  font-size: 1.1em;
+  padding: 0 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
 }
 
 .paragraph {
-  font-size: 1em;
-  margin: 10px 0;
+  font-size: 0.6em;
+  padding: 0 10px;
+  margin: 10px 0 0 0;
   color: #bbbbbb;
   letter-spacing: 2px;
 }
@@ -31,15 +33,15 @@
 }
 
 .buttonWrapper a {
-  font-size: 0.65em;
+  font-size: 0.55em;
   text-transform: uppercase;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 20px;
+  margin: 8px 10px;
   color: #ffffff;
-  width: 140px;
+  width: 120px;
   height: 40px;
   border: 2px solid white;
   background-color: transparent;
@@ -50,4 +52,21 @@
 .buttonWrapper a:hover {
   background-color: #ffffff;
   color: #000000;
+}
+
+@media (min-width: 500px) {
+  .header {
+    font-size: 2em;
+  }
+
+  .paragraph {
+    font-size: 1em;
+    margin: 10px 0;
+  }
+
+  .buttonWrapper a {
+    font-size: 0.65em;
+    width: 140px;
+    margin: 10px 20px;
+  }
 }
