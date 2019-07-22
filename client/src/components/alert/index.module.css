@@ -1,6 +1,6 @@
 .list {
   width: 90%;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   top: 30px;
