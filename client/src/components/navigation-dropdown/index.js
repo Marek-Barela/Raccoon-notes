@@ -5,6 +5,8 @@ import { logout } from "../../actions/auth";
 
 const Dropdown = ({ user, logout }) => {
   const { dropdown, dropdownElem, list, listElem, listMail } = style;
+  const MAX_USERNAME_LENGTH = 15;
+  const MAX_USER_EMAIL_LENGTH = 20;
   let email = "";
   let name = "";
 
@@ -18,12 +20,12 @@ const Dropdown = ({ user, logout }) => {
     email = ""
   }
 
-  if (name.length > 15) {
-    name = name.substring(0, 15) + "...";
+  if (name.length > MAX_USERNAME_LENGTH) {
+    name = name.substring(0, MAX_USERNAME_LENGTH) + "...";
   }
 
-  if (email.length > 20) {
-    email = email.substring(0, 20) + "...";
+  if (email.length > MAX_USER_EMAIL_LENGTH) {
+    email = email.substring(0, MAX_USER_EMAIL_LENGTH) + "...";
   }
 
   return (
